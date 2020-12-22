@@ -1,0 +1,20 @@
+{
+  "name": "Fair-Play",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.4"
+  }
+}
