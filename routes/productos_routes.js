@@ -5,12 +5,13 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { getProductos, crearProductos, modificarProductos, borrarProductos } = require('../controller/productos_controller');
+const { getProductos, listarPorCodigo, crearProductos, modificarProductos, borrarProductos } = require('../controller/productos_controller');
 const { validarCampos } = require('../middlewares/validar');
 
 const router = Router();
 
 router.get( '/', getProductos );
+router.get('/:codigo', listarPorCodigo );
 router.post( '/', 
              [ 
                 check('nombre', 'El nombre del producto es necesario').not().isEmpty(),

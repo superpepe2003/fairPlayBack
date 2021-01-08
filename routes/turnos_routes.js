@@ -22,9 +22,9 @@ router.post( '/',
 
 router.put( '/:id',
             [
-                check('cancha', 'La cancha es obligatoria').not().isEmpty(),
-                check('fecha', 'La fecha es obligatoria').not().isEmpty(),
-                validarCampos
+                // check('cancha', 'La cancha es obligatoria').not().isEmpty(),
+                // check('fecha', 'La fecha es obligatoria').not().isEmpty(),
+                // validarCampos
             ], 
             modificarTurno );
 

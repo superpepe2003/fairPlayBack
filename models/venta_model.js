@@ -11,7 +11,7 @@ const VentasSchema = Schema({
         type: Number,
         required: true
     },
-    detalle: [
+    productos: [
         {
             cantidad: {
                 type: Number
@@ -22,6 +22,17 @@ const VentasSchema = Schema({
             producto: {
                 type: Schema.Types.ObjectId,
                 ref: 'Producto'
+            }
+        }
+    ],
+    turnos: [
+        {
+            turno: {
+                type: Schema.Types.ObjectId,
+                ref: 'Turno'
+            },
+            monto: {
+                type: Number
             }
         }
     ]

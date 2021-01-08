@@ -1,8 +1,15 @@
 {
-  "name": "Fair-Play",
+  "name": "fairPlayBack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "eslingConfit": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    }
+  },
   "scripts": {
     "start:dev": "nodemon index.js"
   },
@@ -15,6 +22,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.7.0",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.4"
+    "mongoose": "^5.11.4",
+    "nodemon": "^2.0.6"
   }
 }

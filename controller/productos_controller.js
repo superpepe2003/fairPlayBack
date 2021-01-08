@@ -25,10 +25,32 @@ const getProductos = async( req, res = response) => {
         res.status(500).json({
             ok: false,
             msg: 'Comuniquese con el administrador'
-        })
+        });
     }
     
-}
+};
+
+const listarPorCodigo = async( req, res = response) => {
+
+    const codigo = req.params.codigo;
+
+    try {
+
+        const productosDB = await Producto.find({codBarra: codigo});
+
+        res.json({
+            ok: true,
+            producto: productosDB[0]
+        });
+        
+    } catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: 'Comuniquese con el administrador'
+        });
+    }
+
+};
 
 const crearProductos = async( req, res= response) => {
 
@@ -42,7 +64,7 @@ const crearProductos = async( req, res= response) => {
             return res.status(400).json({
                 ok: false,
                 msg: 'Codigo de Barra ya existe'
-            })
+            });
         }
 
         const producto =  new Producto( req.body );
@@ -58,12 +80,12 @@ const crearProductos = async( req, res= response) => {
         return res.status(500).json({
             ok: false,
             msg: 'Comuníquese con un Admin'
-        })
+        });
     }
 
-}
+};
 
-modificarProductos = async( req, res = response) => {
+const modificarProductos = async( req, res = response) => {
 
     const id = req.params.id;
 
@@ -89,10 +111,10 @@ modificarProductos = async( req, res = response) => {
         res.status(500).json({
             ok: false,
             msg: 'Hable con el administrador'
-        })
+        });
     }
 
-}
+};
 
 const borrarProductos = async(req, res=response) => {
 
@@ -121,15 +143,16 @@ const borrarProductos = async(req, res=response) => {
         res.status(500).json({
             ok: false,
             msg: 'Comuniquese con el administrador'
-        })
+        });
     }
 
-}
+};
 
 
 module.exports = {
     getProductos,
+    listarPorCodigo,
     crearProductos,
     modificarProductos,
     borrarProductos
-}
+};
