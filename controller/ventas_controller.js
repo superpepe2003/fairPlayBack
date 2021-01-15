@@ -9,14 +9,12 @@ const listarVentas = async(req, res = response ) => {
 
     const fecha = moment(req.query.fechaInicial, 'YYYY-MM-DD').hours(0).minutes(0).seconds(0).toDate();
     const fecha2 = moment(req.query.fechaFinal, 'YYYY-MM-DD').hours(23).minutes(59).seconds(59).toDate();
-    
-    console.log(fecha);
-    console.log(fecha2);
 
     try {
 
         ventasDB = await Venta.find({ "fecha": { "$gte":  fecha, "$lt": fecha2 }})
-                        .populate('detalle.productoId');
+                        .populate('productos.producto')
+                        .populate('turnos.turno');
 
         res.json({
             ok: true,

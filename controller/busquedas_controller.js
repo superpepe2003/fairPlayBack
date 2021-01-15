@@ -3,6 +3,7 @@ const { response } = require('express');
 
 const Producto = require('../models/producto_model');
 const Cliente = require('../models/cliente_model');
+const Usuario = require('../models/usuario_model');
 
 const getColeccion = async( req, res = response ) => {
 
@@ -22,12 +23,14 @@ const getColeccion = async( req, res = response ) => {
             case 'clientes':
                 data = await Cliente.find({ nombreCompleto: regex });
                 break;
+            case 'usuarios':
+                data = await Usuario.find({ nombre: regex });
+                break;
             default:
                 return res.status(400).json({
                     ok: false,
-                    msg: 'la tabla tiene que ser usuarios/medicos/hospitales'
+                    msg: 'la tabla tiene que ser usuarios/clientes/productos'
                 });
-                break;
         }
 
         res.json({
